@@ -36,5 +36,21 @@ void Matrix::show()
 		if ((i+1) % std::max(rowsize, colsize) == 0 && i != 0)
 			std::cout << std::endl;
 	}
+	std::cout << std::endl;
 }
+
+Matrix Matrix::operator+(const Matrix& rhs) const
+{	
+	Matrix result(rowsize, colsize);
+	if (rowsize != rhs.rowsize || colsize != rhs.colsize) {
+		throw std::invalid_argument("Matrices shapes mismatch");
+		return result;
+	}
+	for (int i = 0; i < rowsize * colsize; i++) {
+		result.ptr[i] = this->ptr[i] + rhs.ptr[i];
+	}
+	return result;
+	
+}
+
 

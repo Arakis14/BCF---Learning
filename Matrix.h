@@ -3,6 +3,7 @@
 #include <ctime>
 #include <iostream>
 #include <algorithm>
+#include <stdexcept>
 
 class Matrix
 {
@@ -15,5 +16,6 @@ public:
 	int& elementAt(int x, int y);
 	void show();
 	void fill();
+	Matrix operator+(const Matrix& m) const;
 };
 
