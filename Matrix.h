@@ -1,13 +1,19 @@
 #pragma once
-#include <vector>
+#include <memory>
+#include <ctime>
+#include <iostream>
+#include <algorithm>
 
 class Matrix
 {
 protected:
 	int rowsize;
 	int colsize;
-	std::vector<std::vector<int>> matrix;
+	std::unique_ptr<int[]> ptr;
 public:
-	Matrix(int m_rowsize, int m_colsize, std::vector<std::vector<int>> m_matrix);
+	Matrix(int m_rowsize, int m_colsize);
+	int& elementAt(int x, int y);
+	void show();
+	void fill();
 };
 

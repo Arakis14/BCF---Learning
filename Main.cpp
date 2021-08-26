@@ -2,6 +2,7 @@
 #include <iterator>
 #include <Matrix.h>
 
+/*
 void printMatrix(const std::vector<std::vector<int>>& x)
 {
 	for (int i = 0; i < x.size(); i++)
@@ -13,14 +14,16 @@ void printMatrix(const std::vector<std::vector<int>>& x)
 		std::cout << std::endl;
 	}
 };
+*/
 
 int main()
 {
-	std::vector<std::vector<int>> vec = {
-	{ 1, 2, 3 },
-	{ 4, 5, 6 },
-	{ 7, 8, 9 } };
-	printMatrix(vec);
-	Matrix *m1 = new Matrix(3, 3, vec);
-	delete m1;
+	srand(time(NULL));
+	Matrix m1(5, 6); 
+	m1.fill();
+	m1.show();
+	std::cout << m1.elementAt(2, 2) << std::endl;
+	std::cout << m1.elementAt(10, 10);
+
+
 };
