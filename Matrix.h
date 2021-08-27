@@ -17,5 +17,6 @@ public:
 	void show();
 	void fill();
 	Matrix operator+(const Matrix& m) const;
+	Matrix& operator+=(const Matrix& m);
 };
 

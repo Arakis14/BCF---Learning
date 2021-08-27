@@ -53,4 +53,17 @@ Matrix Matrix::operator+(const Matrix& rhs) const
 	
 }
 
+Matrix& Matrix::operator+=(const Matrix& rhs)
+{	
+	if (rowsize != rhs.rowsize || colsize != rhs.colsize) {
+		throw std::invalid_argument("Matrices shapes mismatch");
+		return *this;
+	}
+	for (int i = 0; i < rowsize * colsize; i++) {
+		this->ptr[i] = this->ptr[i] + rhs.ptr[i];
+	}
+	return *this;
+	
+}
+
 
