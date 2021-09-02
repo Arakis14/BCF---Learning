@@ -66,4 +66,16 @@ Matrix& Matrix::operator+=(const Matrix& rhs)
 	
 }
 
+Matrix Matrix::operator-(const Matrix& rhs) const
+{
+	Matrix result(rowsize, colsize);
+	if (rowsize != rhs.rowsize || colsize != rhs.colsize) {
+		throw std::invalid_argument("Matrices shapes mismatch");
+		return result;
+	}
+	for (int i = 0; i < rowsize * colsize; i++) {
+		result.ptr[i] = this->ptr[i] - rhs.ptr[i];
+	}
+	return result;
+}
 

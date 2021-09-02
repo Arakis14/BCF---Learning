@@ -43,4 +43,12 @@ int main()
 		std::cerr << e.what() << std::endl;
 	}
 	m3.show();
+
+	try {
+		m3 = m2 - m1;
+	}
+	catch (std::invalid_argument& e) {
+		std::cerr << e.what() << std::endl;
+	}
+	m3.show();
 };
