@@ -16,9 +16,13 @@ public:
 	int& elementAt(int x, int y);
 	void show();
 	void fill();
+	void staticfill(); //debugg
 	Matrix operator+(const Matrix& m) const;
 	Matrix operator+(const int& rhs);
 	Matrix& operator+=(const Matrix& m);
+	Matrix& operator+=(const int& rhs);
 	Matrix operator-(const Matrix& m) const;
+	Matrix operator-(const int& rhs);
+	Matrix operator*(const int& rhs);
 };
 

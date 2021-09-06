@@ -28,6 +28,16 @@ void Matrix::fill()
 	}
 }
 
+void Matrix::staticfill()
+{
+	for (int i = 0; i < rowsize * colsize; i++)
+	{
+		ptr[i] = 1;
+	}
+	this->show();
+}
+
+
 void Matrix::show()
 {
 	for (int i = 0; i < rowsize * colsize; i++)
@@ -75,6 +85,14 @@ Matrix& Matrix::operator+=(const Matrix& rhs)
 	
 }
 
+Matrix& Matrix::operator+=(const int& rhs)
+{
+	for (int i = 0; i < rowsize * colsize; i++) {
+		this->ptr[i] = this->ptr[i] + rhs;
+	}
+	return *this;
+}
+
 Matrix Matrix::operator-(const Matrix& rhs) const
 {
 	Matrix result(rowsize, colsize);
@@ -84,6 +102,24 @@ Matrix Matrix::operator-(const Matrix& rhs) const
 	}
 	for (int i = 0; i < rowsize * colsize; i++) {
 		result.ptr[i] = this->ptr[i] - rhs.ptr[i];
+	}
+	return result;
+}
+
+Matrix Matrix::operator-(const int& rhs)
+{
+	Matrix result(this->rowsize, this->colsize);
+	for (int i = 0; i < rowsize * colsize; i++) {
+		result.ptr[i] = this->ptr[i] - rhs;
+	}
+	return result;
+}
+
+Matrix Matrix::operator*(const int& rhs)
+{
+	Matrix result(this->rowsize, this->colsize);
+	for (int i = 0; i < rowsize * colsize; i++) {
+		result.ptr[i] = this->ptr[i] * rhs;
 	}
 	return result;
 }

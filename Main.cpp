@@ -52,4 +52,15 @@ int main()
 		std::cerr << e.what() << std::endl;
 	}
 	m3.show();
+
+	std::cout << "Scalars:" << std::endl;
+
+	Matrix m4(3, 3);
+	m4.staticfill();
+	m4 += 5;
+	m4.show();
+	m4 = m4 - 3;
+	m4.show();
+	m4 = m4 * 2;
+	m4.show();
 };
