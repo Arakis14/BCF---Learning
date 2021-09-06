@@ -3,7 +3,7 @@
 Matrix::Matrix(int m_rowsize, int m_colsize)
 	: ptr (new int[m_rowsize * m_colsize]), rowsize(m_rowsize), colsize(m_colsize)
 {
-
+	std::cout << "Matrix " << this->getRowSize() << " by " << this->getColSize() << " created." << std::endl;
 }
 
 int& Matrix::elementAt(int x, int y)
@@ -18,6 +18,11 @@ int& Matrix::elementAt(int x, int y)
 	}
 }
 
+int Matrix::getRowSize()
+{
+	return this->rowsize;
+}
+
 void Matrix::fill()
 {
 	for (int i = 0; i < rowsize * colsize; i++)
@@ -28,7 +33,7 @@ void Matrix::fill()
 	}
 }
 
-void Matrix::staticfill()
+void Matrix::staticFill()
 {
 	for (int i = 0; i < rowsize * colsize; i++)
 	{
@@ -36,6 +41,23 @@ void Matrix::staticfill()
 	}
 	this->show();
 }
+
+
+int Matrix::getColSize()
+{
+	return this->colsize;
+}
+
+void Matrix::setRowSize(int newRow)
+{
+	this->rowsize = newRow;
+}
+
+void Matrix::setColSize(int newCol)
+{
+	this->colsize = newCol;
+}
+
 
 
 void Matrix::show()

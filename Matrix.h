@@ -14,9 +14,13 @@ protected:
 public:
 	Matrix(int m_rowsize, int m_colsize);
 	int& elementAt(int x, int y);
+	int getRowSize();
+	int getColSize();
+	void setRowSize(int newRow);
+	void setColSize(int newCol);
 	void show();
 	void fill();
-	void staticfill(); //debugg
+	void staticFill(); //debugg
 	Matrix operator+(const Matrix& m) const;
 	Matrix operator+(const int& rhs);
 	Matrix& operator+=(const Matrix& m);
