@@ -53,6 +53,15 @@ Matrix Matrix::operator+(const Matrix& rhs) const
 	
 }
 
+Matrix Matrix::operator+(const int& rhs)
+{
+	Matrix result(this->rowsize, this->colsize);
+	for (int i = 0; i < rowsize * colsize; i++) {
+		result.ptr[i] = this->ptr[i] + rhs;
+	}
+	return result;
+}
+
 Matrix& Matrix::operator+=(const Matrix& rhs)
 {	
 	if (rowsize != rhs.rowsize || colsize != rhs.colsize) {
