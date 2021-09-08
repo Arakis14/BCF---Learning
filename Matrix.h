@@ -4,6 +4,7 @@
 #include <iostream>
 #include <algorithm>
 #include <stdexcept>
+#include <fstream>
 
 class Matrix
 {
@@ -20,6 +21,7 @@ public:
 	void setColSize(int newCol);
 	void show();
 	void fill();
+	void save();
 	void staticFill(); //debugg
 	Matrix operator+(const Matrix& m) const;
 	Matrix operator+(const int& rhs);

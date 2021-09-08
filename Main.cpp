@@ -25,6 +25,7 @@ void printHello()
 
 void showMenu()
 {
+	std::cout << "What would you like to do?" << std::endl;
 	std::cout << "C - Create a matrix" << std::endl;
 	std::cout << "F - Fill the matrix with values" << std::endl;
 	std::cout << "P - Print the matrix" << std::endl;
@@ -44,7 +45,6 @@ int main()
 	Matrix m(10,10);
 	do {
 		showMenu();
-		std::cout << "What would you like to do?" << std::endl;
 		std::cin >> input;
 		if (toupper(input) == 'C')
 		{
@@ -64,10 +64,12 @@ int main()
 		}
 		else if (toupper(input) == 'F')
 		{
+			std::cout << "\nMatrix filled with random values." << std::endl;
 			m.fill();
 		}
 		else if (toupper(input) == 'P')
 		{
+			std::cout << "\nMatrix values:" << std::endl;
 			m.show();
 		}
 		else if (toupper(input) == 'A')
@@ -75,18 +77,30 @@ int main()
 			std::cout << "Add values by: " << std::endl;
 			std::cin >> number;
 			m += number;
+			std::cout << "Done! " << std::endl;
 		}
 		else if (toupper(input) == 'S')
 		{
 			std::cout << "Substract values by: " << std::endl;
 			std::cin >> number;
 			m = m - number;
+			std::cout << "Done! " << std::endl;
 		}
 		else if (toupper(input) == 'M')
 		{
 			std::cout << "Multiply values by: " << std::endl;
 			std::cin >> number;
 			m = m * number;
+			std::cout << "Done! " << std::endl;
+		}
+		else if (toupper(input) == 'V')
+		{
+			m.save();
+			std::cout << "Matrix saved!" << std::endl;
+		}
+		else if (toupper(input) == 'Q')
+		{
+			std::cout << "Goodbye!" << std::endl;
 		}
 		else
 			std::cout << "Invalid button!" << std::endl;

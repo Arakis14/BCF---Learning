@@ -3,7 +3,8 @@
 Matrix::Matrix(int m_rowsize, int m_colsize)
 	: ptr (new int[m_rowsize * m_colsize]), rowsize(m_rowsize), colsize(m_colsize)
 {
-	std::cout << "Matrix " << this->getRowSize() << " by " << this->getColSize() << " created." << std::endl;
+	//debugg
+	//std::cout << "Matrix " << this->getRowSize() << " by " << this->getColSize() << " created." << std::endl;
 }
 
 int& Matrix::elementAt(int x, int y)
@@ -33,6 +34,19 @@ void Matrix::fill()
 	}
 }
 
+void Matrix::save()
+{
+	std::fstream my_file;
+	my_file.open("Matrix storage.txt", std::ios::out | std::ios::app);
+	my_file << "\n";
+	for (int i = 0; i < rowsize * colsize; i++) {
+		my_file << ptr.get()[i] << " ";
+		if ((i + 1) % std::max(rowsize, colsize) == 0 && i != 0)
+			my_file << "\n";
+	}
+	my_file.close();
+}
+
 void Matrix::staticFill()
 {
 	for (int i = 0; i < rowsize * colsize; i++)
@@ -57,8 +71,6 @@ void Matrix::setColSize(int newCol)
 {
 	this->colsize = newCol;
 }
-
-
 
 void Matrix::show()
 {
